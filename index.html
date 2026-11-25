@@ -306,7 +306,6 @@
     </div>
   </main>
 
-  <!-- 설정 모달 -->
   <div id="settingsModal" class="modal-backdrop">
     <div class="modal">
       <h3>⚙️ 개인 전용 실시간 검색 및 자동화 연동 설정</h3>
@@ -479,7 +478,7 @@
     }
 
     async function callGeminiWithFallback(apiKey, prompt) {
-      const models = ["gemini-3.0-flash", "gemini-2.0-flash"];
+      const models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"];
       let lastErr = null;
       for (const m of models) {
         try {

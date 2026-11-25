@@ -1,0 +1,38 @@
+name: Daily Strategic Paper Pipeline
+
+on:
+  schedule:
+    # 매일 한국시간(KST) 오전 07:00 자동 실행 (UTC 22:00)
+    - cron: '0 22 * * *'
+  # 웹사이트에서 키워드를 변경하거나 수동 테스트할 때 즉시 실행 가능
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Paper Analysis Pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/pipeline.py
+
+      - name: Commit and push updated data
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update daily paper briefing" && git push)

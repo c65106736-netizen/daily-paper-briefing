@@ -297,19 +297,19 @@
           <p>매일 자동 수집·전문성 정량 평가 기반 경영·기술 논문 인텔리전스 (30일 쿨다운 재추천)</p>
         </div>
         <div class="header-actions">
-          <button id="favTabBtn" class="btn-fav-tab" onclick="toggleFavoritesView()">⭐ 즐겨찾기 (<span id="favCountBadge">0</span>)</button>
+          <button type="button" id="favTabBtn" class="btn-fav-tab" onclick="toggleFavoritesView()">⭐ 즐겨찾기 (<span id="favCountBadge">0</span>)</button>
           <select id="archiveSelect" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.84rem;">
             <option value="latest">최신 브리핑 불러오는 중...</option>
           </select>
-          <button onclick="openSettings()">⚙️ 설정</button>
-          <button onclick="toggleTheme()">🌓 테마</button>
+          <button type="button" onclick="openSettings()">⚙️ 설정</button>
+          <button type="button" onclick="toggleTheme()">🌓 테마</button>
         </div>
       </div>
 
       <div class="search-panel">
         <input type="text" id="keywordInput" placeholder="새 관심 키워드 입력 (예: M&A strategy, generative AI supply chain, omnichannel retail)..." />
-        <button class="btn-primary" onclick="runLiveKeywordSearch(false)">🔍 즉시 5편 검색·분석</button>
-        <button onclick="runLiveKeywordSearch(true)" title="내일 아침 7시 자동화 기준 키워드까지 함께 변경합니다">💾 검색 + 내일부터 기본 키워드로 고정</button>
+        <button type="button" class="btn-primary" onclick="runLiveKeywordSearch(false)">🔍 즉시 5편 검색·분석</button>
+        <button type="button" onclick="runLiveKeywordSearch(true)" title="내일 아침 7시 자동화 기준 키워드까지 함께 변경합니다">💾 검색 + 내일부터 기본 키워드로 고정</button>
       </div>
     </div>
   </header>
@@ -335,7 +335,7 @@
       <p>입력하신 키는 외부 서버로 전송되지 않고 오직 본인 브라우저(localStorage)에만 안전하게 저장됩니다.</p>
       <div class="field">
         <label>1. Google Gemini API Key (웹에서 즉시 5편 요약용)</label>
-        <input type="password" id="geminiKeyInput" placeholder="AQ... 또는 AIza..." />
+        <input type="password" id="geminiKeyInput" placeholder="AIza..." />
       </div>
       <div class="field">
         <label>2. GitHub Personal Access Token (내일 아침 기본 키워드 영구 변경용, repo 권한)</label>
@@ -346,22 +346,22 @@
         <input type="text" id="repoPathInput" placeholder="아이디/저장소이름" />
       </div>
       <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:18px;">
-        <button onclick="closeSettings()">닫기</button>
-        <button class="btn-primary" onclick="saveSettings()">설정 저장</button>
+        <button type="button" onclick="closeSettings()">닫기</button>
+        <button type="button" class="btn-primary" onclick="saveSettings()">설정 저장</button>
       </div>
     </div>
   </div>
 
   <script>
-    let archiveData = [];
-    let currentBriefingData = null;
-    let currentRenderedPapers = [];
-    let isFavoritesMode = false;
+    var archiveData = [];
+    var currentBriefingData = null;
+    var currentRenderedPapers = [];
+    var isFavoritesMode = false;
 
     function getFavorites() {
       try {
         return JSON.parse(localStorage.getItem("bookmarked_papers") || "[]");
-      } catch {
+      } catch (e) {
         return [];
       }
     }
@@ -372,33 +372,35 @@
     }
 
     function updateFavBadge() {
-      const count = getFavorites().length;
-      document.getElementById("favCountBadge").textContent = count;
+      var count = getFavorites().length;
+      var badge = document.getElementById("favCountBadge");
+      if (badge) badge.textContent = count;
     }
 
     function isBookmarked(paperId) {
-      return getFavorites().some(p => p.paper_id === paperId);
+      return getFavorites().some(function(p) { return p.paper_id === paperId; });
     }
 
     function toggleBookmark(index) {
-      const paper = currentRenderedPapers[index];
+      var paper = currentRenderedPapers[index];
       if (!paper) return;
-      let favs = getFavorites();
-      const existsIdx = favs.findIndex(p => p.paper_id === paper.paper_id);
+      var favs = getFavorites();
+      var existsIdx = favs.findIndex(function(p) { return p.paper_id === paper.paper_id; });
 
       if (existsIdx >= 0) {
         favs.splice(existsIdx, 1);
       } else {
-        favs.unshift({ ...paper, bookmarked_at: new Date().toLocaleDateString("ko-KR") });
+        var copy = Object.assign({}, paper, { bookmarked_at: new Date().toLocaleDateString("ko-KR") });
+        favs.unshift(copy);
       }
       saveFavorites(favs);
 
       if (isFavoritesMode) {
         renderFavorites();
       } else {
-        const btn = document.getElementById(`fav-btn-${index}`);
+        var btn = document.getElementById("fav-btn-" + index);
         if (btn) {
-          const active = existsIdx < 0;
+          var active = existsIdx < 0;
           btn.classList.toggle("bookmarked", active);
           btn.textContent = active ? "⭐ 즐겨찾기됨" : "☆ 즐겨찾기";
         }
@@ -407,7 +409,7 @@
 
     function toggleFavoritesView() {
       isFavoritesMode = !isFavoritesMode;
-      const tabBtn = document.getElementById("favTabBtn");
+      var tabBtn = document.getElementById("favTabBtn");
       tabBtn.classList.toggle("active", isFavoritesMode);
 
       if (isFavoritesMode) {
@@ -418,7 +420,7 @@
     }
 
     function renderFavorites() {
-      const favs = getFavorites();
+      var favs = getFavorites();
       document.getElementById("modeLabel").textContent = "보관함:";
       document.getElementById("activeKeyword").textContent = "⭐ 내 즐겨찾기 논문 목록";
       document.getElementById("updatedAt").textContent = "브라우저 영구 보관";
@@ -426,8 +428,8 @@
     }
 
     function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme");
-      const next = current === "dark" ? "light" : "dark";
+      var current = document.documentElement.getAttribute("data-theme");
+      var next = current === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("theme", next);
     }
@@ -441,9 +443,11 @@
       document.getElementById("repoPathInput").value = localStorage.getItem("github_repo") || "c65106736-netizen/daily-paper-briefing";
       document.getElementById("settingsModal").classList.add("open");
     }
+
     function closeSettings() {
       document.getElementById("settingsModal").classList.remove("open");
     }
+
     function saveSettings() {
       localStorage.setItem("gemini_api_key", document.getElementById("geminiKeyInput").value.trim());
       localStorage.setItem("github_pat", document.getElementById("githubTokenInput").value.trim());
@@ -455,33 +459,32 @@
     async function loadInitialData() {
       updateFavBadge();
       try {
-        const res = await fetch("./data/latest.json?t=" + Date.now());
+        var res = await fetch("./data/latest.json?t=" + Date.now());
         if (!res.ok) throw new Error("아직 첫 자동 수집이 실행되지 않았습니다.");
-        const latest = await res.json();
+        var latest = await res.json();
         renderBriefing(latest);
 
-        const archRes = await fetch("./data/archive.json?t=" + Date.now());
+        var archRes = await fetch("./data/archive.json?t=" + Date.now());
         if (archRes.ok) {
           archiveData = await archRes.json();
-          const select = document.getElementById("archiveSelect");
-          select.innerHTML = archiveData.map((item, idx) =>
-            `<option value="${idx}">${item.updated_at} (${item.keyword})</option>`
-          ).join("");
-          select.onchange = (e) => {
+          var select = document.getElementById("archiveSelect");
+          select.innerHTML = archiveData.map(function(item, idx) {
+            return '<option value="' + idx + '">' + item.updated_at + ' (' + item.keyword + ')</option>';
+          }).join("");
+          select.onchange = function(e) {
             isFavoritesMode = false;
             document.getElementById("favTabBtn").classList.remove("active");
             renderBriefing(archiveData[e.target.value]);
           };
         }
       } catch (err) {
-        document.getElementById("paperContainer").innerHTML = `
-          <div class="loading-box">
-            <h3>첫 데이터 생성 대기 중</h3>
-            <p style="margin-top:8px; color:var(--text-muted);">
-              GitHub 저장소의 <strong>Actions → Daily Strategic Paper Pipeline → Run workflow</strong>를 한 번 실행하면 첫 5편의 논문 리포트가 생성됩니다.<br/>
-              또는 우측 상단 <strong>[⚙️ 설정]</strong>에 Gemini API 키를 입력하고 위 검색창에서 바로 논문을 조회할 수 있습니다.
-            </p>
-          </div>`;
+        document.getElementById("paperContainer").innerHTML =
+          '<div class="loading-box">' +
+          '<h3>첫 데이터 생성 대기 중</h3>' +
+          '<p style="margin-top:8px; color:var(--text-muted);">' +
+          'GitHub 저장소의 <strong>Actions → Daily Strategic Paper Pipeline → Run workflow</strong>를 한 번 실행하면 첫 5편의 논문 리포트가 생성됩니다.<br/>' +
+          '또는 우측 상단 <strong>[⚙️ 설정]</strong>에 Gemini API 키를 입력하고 위 검색창에서 바로 논문을 조회할 수 있습니다.' +
+          '</p></div>';
       }
     }
 
@@ -498,81 +501,57 @@
       currentRenderedPapers = papers;
       document.getElementById("paperCount").textContent = papers.length;
 
-      const container = document.getElementById("paperContainer");
+      var container = document.getElementById("paperContainer");
       if (papers.length === 0) {
-        container.innerHTML = `<div class="loading-box">${isFavList ? "아직 즐겨찾기한 논문이 없습니다. 각 논문 하단의 [☆ 즐겨찾기] 버튼을 눌러 저장해 보세요." : "표시할 논문 데이터가 없습니다."}</div>`;
+        container.innerHTML = '<div class="loading-box">' +
+          (isFavList ? "아직 즐겨찾기한 논문이 없습니다. 각 논문 하단의 [☆ 즐겨찾기] 버튼을 눌러 저장해 보세요." : "표시할 논문 데이터가 없습니다.") +
+          '</div>';
         return;
       }
 
-      container.innerHTML = papers.map((p, i) => {
-        const saved = isBookmarked(p.paper_id);
-        return `
-        <article class="paper-card">
-          <div class="card-top">
-            <div style="flex:1; min-width:260px;">
-              <span class="venue-badge">#${i + 1} · ${escapeHtml(p.venue)} (${p.year}) · 피인용 ${p.citation_count}회 ${p.bookmarked_at && isFavList ? `· 저장일 ${escapeHtml(p.bookmarked_at)}` : ""}</span>
-              <h2 class="korean-title">${escapeHtml(p.korean_title)}</h2>
-              <div class="orig-title">${escapeHtml(p.original_title)}</div>
-            </div>
-            <div class="score-box">
-              <div class="total-score">전문성 ${p.total_score}점 <span style="font-size:0.8rem; font-weight:500;">/100</span></div>
-              <div class="sub-scores">
-                저널 권위: <strong>${p.journal_authority}</strong> · 방법론: <strong>${p.methodology_rigor}</strong><br/>
-                실무 파급력: <strong>${p.practical_impact}</strong>
-              </div>
-            </div>
-          </div>
+      container.innerHTML = papers.map(function(p, i) {
+        var saved = isBookmarked(p.paper_id);
+        var savedDateBadge = (p.bookmarked_at && isFavList) ? (" · 저장일 " + escapeHtml(p.bookmarked_at)) : "";
+        var doiHtml = p.doi ? (" · <strong>DOI:</strong> " + escapeHtml(p.doi)) : "";
+        var urlHtml = p.url ? ('<a class="link-btn" href="' + escapeAttr(p.url) + '" target="_blank" rel="noopener">🔗 원문 페이지</a>') : "";
+        var pdfHtml = p.pdf_url ? ('<a class="link-btn" href="' + escapeAttr(p.pdf_url) + '" target="_blank" rel="noopener">📥 무료 PDF</a>') : "";
 
-          <div class="eval-comment">💡 애널리스트 총평: ${escapeHtml(p.evaluation_comment)}</div>
-
-          <div class="analysis-grid">
-            <div class="analysis-item">
-              <h4>1. 핵심 연구 가설 및 목적</h4>
-              <p>${escapeHtml(p.core_hypothesis)}</p>
-            </div>
-            <div class="analysis-item">
-              <h4>2. 연구 방법론 및 데이터</h4>
-              <p>${escapeHtml(p.methodology)}</p>
-            </div>
-            <div class="analysis-item">
-              <h4>3. 주요 실증 결과</h4>
-              <p>${escapeHtml(p.key_findings)}</p>
-            </div>
-            <div class="analysis-item">
-              <h4>4. 연구 한계 및 반론 포인트</h4>
-              <p>${escapeHtml(p.limitations)}</p>
-            </div>
-            <div class="analysis-item insight-highlight">
-              <h4>5. 기업 기획·전략 실무 적용 인사이트</h4>
-              <p>${escapeHtml(p.strategic_insight)}</p>
-            </div>
-          </div>
-
-          <div class="meta-footer">
-            <div>
-              <strong>저자:</strong> ${escapeHtml((p.authors || []).join(", "))}
-              ${p.doi ? ` · <strong>DOI:</strong> ${escapeHtml(p.doi)}` : ""}
-            </div>
-            <div class="link-group">
-              <button id="fav-btn-${i}" class="fav-btn ${saved ? "bookmarked" : ""}" onclick="toggleBookmark(${i})">${saved ? "⭐ 즐겨찾기됨" : "☆ 즐겨찾기"}</button>
-              <button onclick="toggleDrawer('abs-${i}')">📄 영문 원문 보기</button>
-              <button onclick="toggleDrawer('cit-${i}')">📚 APA 인용 복사</button>
-              ${p.url ? `<a class="link-btn" href="${escapeAttr(p.url)}" target="_blank" rel="noopener">🔗 원문 페이지</a>` : ""}
-              ${p.pdf_url ? `<a class="link-btn" href="${escapeAttr(p.pdf_url)}" target="_blank" rel="noopener">📥 무료 PDF</a>` : ""}
-            </div>
-          </div>
-
-          <div id="abs-${i}" class="abstract-drawer">
-            <strong>[Original English Abstract]</strong><br/><br/>
-            ${escapeHtml(p.original_abstract)}
-          </div>
-          <div id="cit-${i}" class="citation-drawer">
-            <strong>[APA 7th Citation]</strong><br/>
-            <p id="apa-text-${i}" style="margin:8px 0; font-family:monospace;">${escapeHtml(p.apa_citation)}</p>
-            <button onclick="copyCitation('apa-text-${i}')">📋 인용 문구 복사</button>
-          </div>
-        </article>
-      `}).join("");
+        return '<article class="paper-card">' +
+          '<div class="card-top">' +
+            '<div style="flex:1; min-width:260px;">' +
+              '<span class="venue-badge">#' + (i + 1) + ' · ' + escapeHtml(p.venue) + ' (' + p.year + ') · 피인용 ' + p.citation_count + '회' + savedDateBadge + '</span>' +
+              '<h2 class="korean-title">' + escapeHtml(p.korean_title) + '</h2>' +
+              '<div class="orig-title">' + escapeHtml(p.original_title) + '</div>' +
+            '</div>' +
+            '<div class="score-box">' +
+              '<div class="total-score">전문성 ' + p.total_score + '점 <span style="font-size:0.8rem; font-weight:500;">/100</span></div>' +
+              '<div class="sub-scores">' +
+                '저널 권위: <strong>' + p.journal_authority + '</strong> · 방법론: <strong>' + p.methodology_rigor + '</strong><br/>' +
+                '실무 파급력: <strong>' + p.practical_impact + '</strong>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="eval-comment">💡 애널리스트 총평: ' + escapeHtml(p.evaluation_comment) + '</div>' +
+          '<div class="analysis-grid">' +
+            '<div class="analysis-item"><h4>1. 핵심 연구 가설 및 목적</h4><p>' + escapeHtml(p.core_hypothesis) + '</p></div>' +
+            '<div class="analysis-item"><h4>2. 연구 방법론 및 데이터</h4><p>' + escapeHtml(p.methodology) + '</p></div>' +
+            '<div class="analysis-item"><h4>3. 주요 실증 결과</h4><p>' + escapeHtml(p.key_findings) + '</p></div>' +
+            '<div class="analysis-item"><h4>4. 연구 한계 및 반론 포인트</h4><p>' + escapeHtml(p.limitations) + '</p></div>' +
+            '<div class="analysis-item insight-highlight"><h4>5. 기업 기획·전략 실무 적용 인사이트</h4><p>' + escapeHtml(p.strategic_insight) + '</p></div>' +
+          '</div>' +
+          '<div class="meta-footer">' +
+            '<div><strong>저자:</strong> ' + escapeHtml((p.authors || []).join(", ")) + doiHtml + '</div>' +
+            '<div class="link-group">' +
+              '<button type="button" id="fav-btn-' + i + '" class="fav-btn ' + (saved ? "bookmarked" : "") + '" onclick="toggleBookmark(' + i + ')">' + (saved ? "⭐ 즐겨찾기됨" : "☆ 즐겨찾기") + '</button>' +
+              '<button type="button" onclick="toggleDrawer(\'abs-' + i + '\')">📄 영문 원문 보기</button>' +
+              '<button type="button" onclick="toggleDrawer(\'cit-' + i + '\')">📚 APA 인용 복사</button>' +
+              urlHtml + pdfHtml +
+            '</div>' +
+          '</div>' +
+          '<div id="abs-' + i + '" class="abstract-drawer"><strong>[Original English Abstract]</strong><br/><br/>' + escapeHtml(p.original_abstract) + '</div>' +
+          '<div id="cit-' + i + '" class="citation-drawer"><strong>[APA 7th Citation]</strong><br/><p id="apa-text-' + i + '" style="margin:8px 0; font-family:monospace;">' + escapeHtml(p.apa_citation) + '</p><button type="button" onclick="copyCitation(\'apa-text-' + i + '\')">📋 인용 문구 복사</button></div>' +
+        '</article>';
+      }).join("");
     }
 
     function toggleDrawer(id) {
@@ -580,17 +559,18 @@
     }
 
     function copyCitation(elId) {
-      const text = document.getElementById(elId).textContent;
+      var text = document.getElementById(elId).textContent;
       navigator.clipboard.writeText(text);
       alert("APA 인용 출처가 복사되었습니다.");
     }
 
     async function callGeminiWithFallback(apiKey, prompt) {
-      const models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"];
-      let lastErr = null;
-      for (const m of models) {
+      var models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"];
+      var lastErr = null;
+      for (var idx = 0; idx < models.length; idx++) {
+        var m = models[idx];
         try {
-          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+          var res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/" + m + ":generateContent?key=" + encodeURIComponent(apiKey), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -598,7 +578,7 @@
               generationConfig: { responseMimeType: "application/json", temperature: 0.2 }
             })
           });
-          const data = await res.json();
+          var data = await res.json();
           if (data.error) throw new Error(data.error.message);
           return JSON.parse(data.candidates[0].content.parts[0].text);
         } catch (err) {
@@ -609,10 +589,10 @@
     }
 
     async function runLiveKeywordSearch(saveAsDefault) {
-      const keyword = document.getElementById("keywordInput").value.trim();
+      var keyword = document.getElementById("keywordInput").value.trim();
       if (!keyword) return alert("검색할 키워드를 입력해 주세요.");
 
-      const apiKey = localStorage.getItem("gemini_api_key");
+      var apiKey = localStorage.getItem("gemini_api_key");
       if (!apiKey) {
         alert("웹사이트에서 즉시 검색하려면 먼저 [⚙️ 설정]에서 Gemini API 키를 입력해 주세요.");
         return openSettings();
@@ -621,27 +601,29 @@
       isFavoritesMode = false;
       document.getElementById("favTabBtn").classList.remove("active");
 
-      document.getElementById("paperContainer").innerHTML = `
-        <div class="loading-box">
-          <h3>🔍 "${escapeHtml(keyword)}" 키워드 실시간 학술 DB 검색 및 전문가 평가 중...</h3>
-          <p style="margin-top:8px; color:var(--text-muted);">학술 데이터베이스에서 상위 논문을 추출하고 AI 수석 애널리스트가 5편을 정밀 채점하고 있습니다. (약 10~15초 소요)</p>
-        </div>`;
+      document.getElementById("paperContainer").innerHTML =
+        '<div class="loading-box">' +
+        '<h3>🔍 "' + escapeHtml(keyword) + '" 키워드 실시간 학술 DB 검색 및 전문가 평가 중...</h3>' +
+        '<p style="margin-top:8px; color:var(--text-muted);">학술 데이터베이스에서 상위 논문을 추출하고 AI 수석 애널리스트가 5편을 정밀 채점하고 있습니다. (약 10~15초 소요)</p>' +
+        '</div>';
 
       try {
-        const oaRes = await fetch(`https://api.openalex.org/works?search=${encodeURIComponent(keyword)}&per-page=12&filter=has_abstract:true&sort=cited_by_count:desc`);
-        const oaJson = await oaRes.json();
-        const candidates = (oaJson.results || []).map(item => {
-          const inv = item.abstract_inverted_index || {};
-          const words = {};
-          Object.entries(inv).forEach(([w, posList]) => posList.forEach(p => words[p] = w));
-          const abstract = Object.keys(words).sort((a,b)=>a-b).map(k => words[k]).join(" ");
-          const loc = item.primary_location || {};
-          const src = loc.source || {};
+        var oaRes = await fetch("https://api.openalex.org/works?search=" + encodeURIComponent(keyword) + "&per-page=12&filter=has_abstract:true&sort=cited_by_count:desc");
+        var oaJson = await oaRes.json();
+        var candidates = (oaJson.results || []).map(function(item) {
+          var inv = item.abstract_inverted_index || {};
+          var words = {};
+          Object.keys(inv).forEach(function(w) {
+            inv[w].forEach(function(p) { words[p] = w; });
+          });
+          var abstract = Object.keys(words).sort(function(a, b) { return a - b; }).map(function(k) { return words[k]; }).join(" ");
+          var loc = item.primary_location || {};
+          var src = loc.source || {};
           return {
             paper_id: (item.id || "").split("/").pop(),
             title: item.title || "",
             abstract: abstract.slice(0, 2200),
-            authors: (item.authorships || []).slice(0, 5).map(a => a.author?.display_name).filter(Boolean),
+            authors: (item.authorships || []).slice(0, 5).map(function(a) { return a.author && a.author.display_name; }).filter(Boolean),
             venue: src.display_name || "Academic Journal",
             year: item.publication_year || 2025,
             citation_count: item.cited_by_count || 0,
@@ -649,17 +631,17 @@
             url: item.doi || loc.landing_page_url || "",
             pdf_url: loc.pdf_url || ""
           };
-        }).filter(c => c.abstract.length > 100);
+        }).filter(function(c) { return c.abstract.length > 100; });
 
         if (candidates.length === 0) throw new Error("해당 키워드로 초록이 공개된 논문을 찾지 못했습니다. 영문 키워드로 다시 시도해 보세요.");
 
-        const prompt = `당신은 글로벌 전략컨설팅 펌의 수석 애널리스트입니다. 키워드 "${keyword}"에 대해 아래 논문 후보 중 전문성과 실무 가치가 가장 높은 5편을 선정해 JSON으로만 응답하세요.
-후보: ${JSON.stringify(candidates.slice(0, 10))}
-반드시 다음 JSON 구조를 지키세요:
-{"papers":[{"paper_id":"","original_title":"","korean_title":"","authors":[""],"venue":"","year":2025,"citation_count":0,"doi":"","url":"","pdf_url":"","total_score":92,"journal_authority":90,"methodology_rigor":91,"practical_impact":95,"evaluation_comment":"","core_hypothesis":"","methodology":"","key_findings":"","strategic_insight":"","limitations":"","original_abstract":"후보 영문 초록 원문 그대로","apa_citation":""}]}`;
+        var prompt = '당신은 글로벌 전략컨설팅 펌의 수석 애널리스트입니다. 키워드 "' + keyword + '"에 대해 아래 논문 후보 중 전문성과 실무 가치가 가장 높은 5편을 선정해 JSON으로만 응답하세요.\n' +
+          '후보: ' + JSON.stringify(candidates.slice(0, 10)) + '\n' +
+          '반드시 다음 JSON 구조를 지키세요:\n' +
+          '{"papers":[{"paper_id":"","original_title":"","korean_title":"","authors":[""],"venue":"","year":2025,"citation_count":0,"doi":"","url":"","pdf_url":"","total_score":92,"journal_authority":90,"methodology_rigor":91,"practical_impact":95,"evaluation_comment":"","core_hypothesis":"","methodology":"","key_findings":"","strategic_insight":"","limitations":"","original_abstract":"후보 영문 초록 원문 그대로","apa_citation":""}]}';
 
-        const parsed = await callGeminiWithFallback(apiKey, prompt);
-        const nowStr = new Date().toLocaleString("ko-KR") + " (실시간 조회)";
+        var parsed = await callGeminiWithFallback(apiKey, prompt);
+        var nowStr = new Date().toLocaleString("ko-KR") + " (실시간 조회)";
         renderBriefing({
           updated_at: nowStr,
           keyword: keyword,
@@ -670,41 +652,41 @@
           await updateGitHubDefaultKeyword(keyword);
         }
       } catch (err) {
-        document.getElementById("paperContainer").innerHTML = `
-          <div class="loading-box" style="color:#dc2626;">
-            <h3>검색 중 오류가 발생했습니다</h3>
-            <p style="margin-top:8px;">${escapeHtml(err.message)}</p>
-          </div>`;
+        document.getElementById("paperContainer").innerHTML =
+          '<div class="loading-box" style="color:#dc2626;">' +
+          '<h3>검색 중 오류가 발생했습니다</h3>' +
+          '<p style="margin-top:8px;">' + escapeHtml(err.message) + '</p>' +
+          '</div>';
       }
     }
 
     async function updateGitHubDefaultKeyword(newKeyword) {
-      const token = localStorage.getItem("github_pat");
-      const repo = localStorage.getItem("github_repo");
+      var token = localStorage.getItem("github_pat");
+      var repo = localStorage.getItem("github_repo");
       if (!token || !repo) {
         alert("검색 결과는 화면에 표시되었으나, GitHub 토큰이 설정되지 않아 내일 아침 기본 키워드 저장은 건너뛰었습니다. [⚙️ 설정]에서 GitHub 토큰을 등록해 주세요.");
         return;
       }
       try {
-        const apiUrl = `https://api.github.com/repos/${repo}/contents/keywords.json`;
-        const getRes = await fetch(apiUrl, { headers: { Authorization: `Bearer ${token}` } });
-        const fileInfo = await getRes.json();
-        const updatedContent = btoa(unescape(encodeURIComponent(JSON.stringify({ keyword: newKeyword, papers_per_day: 5 }, null, 2))));
+        var apiUrl = "https://api.github.com/repos/" + repo + "/contents/keywords.json";
+        var getRes = await fetch(apiUrl, { headers: { Authorization: "Bearer " + token } });
+        var fileInfo = await getRes.json();
+        var updatedContent = btoa(unescape(encodeURIComponent(JSON.stringify({ keyword: newKeyword, papers_per_day: 5 }, null, 2))));
 
-        const putRes = await fetch(apiUrl, {
+        var putRes = await fetch(apiUrl, {
           method: "PUT",
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: "Bearer " + token,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            message: `chore: update default keyword to "${newKeyword}" from dashboard`,
+            message: 'chore: update default keyword to "' + newKeyword + '" from dashboard',
             content: updatedContent,
             sha: fileInfo.sha
           })
         });
         if (putRes.ok) {
-          alert(`✅ 내일 아침 7시 자동화 기본 키워드도 "${newKeyword}"로 영구 변경되었습니다!`);
+          alert('✅ 내일 아침 7시 자동화 기본 키워드도 "' + newKeyword + '"로 영구 변경되었습니다!');
         } else {
           alert("GitHub 기본 키워드 저장에 실패했습니다. 토큰 권한(repo)을 확인해 주세요.");
         }
@@ -714,10 +696,13 @@
     }
 
     function escapeHtml(str) {
-      return String(str || "").replace(/[&<>"']/g, m => ({ "&": "&", "<": "<", ">": ">", '"': """, "'": "'" }[m]));
+      return String(str || "").replace(/[&<>"']/g, function(m) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+      });
     }
+
     function escapeAttr(str) {
-      return String(str || "").replace(/"/g, """);
+      return String(str || "").replace(/"/g, "&quot;");
     }
 
     loadInitialData();

@@ -1,5 +1,185 @@
 [
   {
+    "updated_at": "2026-11-26 07:46 KST",
+    "keyword": "corporate strategy business model innovation",
+    "count": 5,
+    "papers": [
+      {
+        "paper_id": "W3021889044",
+        "original_title": "The Modern Industrial Revolution, Exit, and the Failure of Internal Control Systems",
+        "korean_title": "현대 산업혁명, 시장 퇴출 및 기업 내부 통제 시스템의 실패",
+        "authors": [
+          "Michael C. Jensen"
+        ],
+        "venue": "The Journal of Finance",
+        "year": 1993,
+        "citation_count": 11965,
+        "doi": "10.1111/j.1540-6261.1993.tb04022.x",
+        "url": "https://doi.org/10.1111/j.1540-6261.1993.tb04022.x",
+        "pdf_url": "",
+        "total_score": 96,
+        "journal_authority": 98,
+        "methodology_rigor": 93,
+        "practical_impact": 97,
+        "evaluation_comment": "재무 및 전략 분야의 거두 마이클 젠슨 교수의 기념비적 논문으로, 급격한 기술 혁신과 공급 과잉 환경에서 기존 기업들의 지배구조 및 내부 통제 시스템이 왜 비즈니스 모델 재편과 자산 매각(Exit)에 실패하는지를 명쾌하게 규명한 전략 경영의 필독 문헌입니다.",
+        "core_hypothesis": "급격한 기술 발전과 탈규제로 인한 산업 패러다임 전환기에는 대규모 설비 축소 및 사업 퇴출이 필수적이나, 기존 기업의 내부 거버넌스와 경영진 통제 시스템은 구조조정을 회피하여 주주 가치를 파괴한다.",
+        "methodology": "역사적 산업혁명 비교 분석 및 1970~1980년대 주요 제조·서비스 산업의 거시 자본 지출, R&D 투자, LBO(차입매수) 및 M&A 데이터를 활용한 이론적·정성적 실증 분석",
+        "key_findings": "기업 내부 통제 시스템(이사회, 내부 보상체계 등)은 성장기에는 작동하지만 역성장과 퇴출이 요구되는 시기에는 자본 낭비와 사업 고수를 초래하며, 결국 외부 자본시장(M&A, 행동주의 펀드)의 강제적 구조조정에 의해 대체된다.",
+        "strategic_insight": "경영진은 기술 변화로 기존 비즈니스 모델의 경제성이 약화될 때 막대한 잉여현금흐름을 기존 사업에 재투자하지 말고, 사업 포트폴리오를 과감히 축소하거나 혁신 비즈니스 모델로 피벗하는 자본 배분 규율을 확립해야 합니다.",
+        "limitations": "주로 20세기 후반 제조업 및 성숙기 대기업 중심의 주주자본주의 시각에 입각하여, 디지털 플랫폼 및 지식 기반 경제의 유연한 자산 경량화(Asset-light) 모델 설명에는 추가적 맥락 보정이 필요합니다.",
+        "tags": [
+          "Corporate Strategy",
+          "Business Model Restructuring",
+          "Corporate Governance",
+          "Capital Allocation",
+          "Industrial Revolution"
+        ],
+        "original_abstract": "Since 1973 technological, political, regulatory, and economic forces have been changing the worldwide economy in a fashion comparable to the changes experienced during the nineteenth century Industrial Revolution. As in the nineteenth century, we are experiencing declining costs, increasing average (but decreasing marginal) productivity of labor, reduced growth rates of labor income, excess capacity, and the requirement for downsizing and exit. The last two decades indicate corporate internal control systems have failed to deal effectively with these changes, especially slow growth and the requirement for exit. The next several decades pose a major challenge for Western firms and political systems as these forces continue to work their way through the worldwide economy.",
+        "apa_citation": "Jensen, M. C. (1993). The Modern Industrial Revolution, Exit, and the Failure of Internal Control Systems. The Journal of Finance, 48(3), 831–880. https://doi.org/10.1111/j.1540-6261.1993.tb04022.x"
+      },
+      {
+        "paper_id": "W3195577433",
+        "original_title": "On the Opportunities and Risks of Foundation Models",
+        "korean_title": "파운데이션 모델의 기회와 위협 요인",
+        "authors": [
+          "Rishi Bommasani",
+          "Drew A. Hudson",
+          "Ehsan Adeli",
+          "Russ Biagio Altman",
+          "Simran Arora"
+        ],
+        "venue": "arXiv",
+        "year": 2021,
+        "citation_count": 12680,
+        "doi": "10.48550/arxiv.2108.07258",
+        "url": "https://doi.org/10.48550/arxiv.2108.07258",
+        "pdf_url": "https://arxiv.org/pdf/2108.07258",
+        "total_score": 93,
+        "journal_authority": 88,
+        "methodology_rigor": 94,
+        "practical_impact": 98,
+        "evaluation_comment": "스탠퍼드 HAI 연구진 100여 명이 공동 집필하여 '파운데이션 모델'이라는 패러다임을 최초로 정립한 리포트로, 생성형 AI 기반의 기업 기술 전략 및 비즈니스 모델 전환에 지대한 영향을 미친 필독 문헌입니다.",
+        "core_hypothesis": "광범위한 데이터로 사전 학습된 파운데이션 모델의 등장은 기술적 창발성(Emergence)과 획일화(Homogenization)를 유발하며, 이는 전 산업의 소프트웨어 아키텍처와 비즈니스 밸류체인을 근본적으로 재편할 것이다.",
+        "methodology": "컴퓨터과학, 법학, 경제학, 사회학 등 다학제적 전문가들이 참여한 포괄적 문헌 고찰 및 기술-사회-경제 영향 분석 프레임워크 구축",
+        "key_findings": "파운데이션 모델은 단일 기반 기술로 수많은 다운스트림 태스크를 처리하는 효율성을 제공하지만, 단일 장애점(Single point of failure) 및 기술 독점 심화, 데이터 편향 전파라는 심각한 구조적 리스크를 수반합니다.",
+        "strategic_insight": "기업은 자체 기반 모델을 구축할 것인지, 오픈소스 기반의 수직 특화 모델을 파인튜닝할 것인지, 독점 상용 API를 활용할 것인지에 대한 명확한 AI 비즈니스 모델 및 데이터 해자(Moat) 전략을 수립해야 합니다.",
+        "limitations": "방대한 영역을 포괄하는 다학제 리뷰 리포트 특성상 개별 세부 도메인의 실증적 인과 추론이나 정량적 비용-편익 분석은 다소 제한적입니다.",
+        "tags": [
+          "Foundation Models",
+          "AI Strategy",
+          "Business Model Innovation",
+          "Technological Disruption",
+          "Ecosystem Strategy"
+        ],
+        "original_abstract": "AI is undergoing a paradigm shift with the rise of models (e.g., BERT, DALL-E, GPT-3) that are trained on broad data at scale and are adaptable to a wide range of downstream tasks. We call these models foundation models to underscore their critically central yet incomplete character. This report provides a thorough account of the opportunities and risks of foundation models, ranging from their capabilities (e.g., language, vision, robotics, reasoning, human interaction) and technical principles(e.g., model architectures, training procedures, data, systems, security, evaluation, theory) to their applications (e.g., law, healthcare, education) and societal impact (e.g., inequity, misuse, economic and environmental impact, legal and ethical considerations). Though foundation models are based on standard deep learning and transfer learning, their scale results in new emergent capabilities,and their effectiveness across so many tasks incentivizes homogenization. Homogenization provides powerful leverage but demands caution, as the defects of the foundation model are inherited by all the adapted models downstream. Despite the impending widespread deployment of foundation models, we currently lack a clear understanding of how they work, when they fail, and what they are even capable of due to their emergent properties. To tackle these questions, we believe much of the critical research on foundation models will require deep interdisciplinary collaboration commensurate with their fundamentally sociotechnical nature.",
+        "apa_citation": "Bommasani, R., Hudson, D. A., Adeli, E., Altman, R. B., & Arora, S. (2021). On the Opportunities and Risks of Foundation Models. arXiv. https://doi.org/10.48550/arxiv.2108.07258"
+      },
+      {
+        "paper_id": "W2147111138",
+        "original_title": "Increasing Returns, Path Dependence, and the Study of Politics",
+        "korean_title": "수익체증, 경로의존성 및 정치학 연구",
+        "authors": [
+          "Paul Pierson"
+        ],
+        "venue": "American Political Science Review",
+        "year": 2000,
+        "citation_count": 11761,
+        "doi": "10.2307/2586011",
+        "url": "https://doi.org/10.2307/2586011",
+        "pdf_url": "",
+        "total_score": 91,
+        "journal_authority": 97,
+        "methodology_rigor": 92,
+        "practical_impact": 85,
+        "evaluation_comment": "아서(W. Brian Arthur)의 경제학적 '수익체증(Increasing Returns)' 이론을 제도 및 조직 전략 분석으로 확장한 고전으로, 기업이 플랫폼 비즈니스 모델 구축 시 초기 선점과 경로의존적 락인(Lock-in)을 어떻게 확보해야 하는지 정교한 이론적 기반을 제공합니다.",
+        "core_hypothesis": "초기 단계의 작은 선택과 우발적 사건이 수익체증 메커니즘(학습효과, 조정효과, 적응적 기대)과 결합될 때 비가역적인 제도적·기술적 경로의존성을 고착화시킨다.",
+        "methodology": "역사적 제도주의(Historical Institutionalism) 및 복잡계 경제학 모델을 결합한 비교 제도 분석 및 개념적 프레임워크 정립",
+        "key_findings": "수익체증 프로세스는 타이밍과 시퀀스의 결정적 중요성, 잠재적 다중 균형의 존재, 사후적 비효율성에도 불구하고 특정 대안에서 벗어나기 어려운 높은 전환 비용(Switching costs)을 구조화합니다.",
+        "strategic_insight": "비즈니스 모델 혁신을 추진하는 기업은 양면 시장 생태계에서 임계질량(Critical mass)을 조기에 달성하여 네트워크 효과에 기반한 경로의존성을 선점하거나, 기존 지배적 경로의 락인을 해제할 수 있는 분괴적(Disruptive) 가치 제안을 설계해야 합니다.",
+        "limitations": "정치 및 제도적 맥락에 중점을 두어 기술 중심 스타트업이나 동태적 시장에서의 빠른 피벗(Pivot) 및 경로 이탈 가능성을 설명하는 데는 한계가 있습니다.",
+        "tags": [
+          "Path Dependence",
+          "Increasing Returns",
+          "Network Effects",
+          "Platform Strategy",
+          "Lock-in"
+        ],
+        "original_abstract": "It is increasingly common for social scientists to describe political processes as “path dependent.” The concept, however, is often employed without careful elaboration. This article conceptualizes path dependence as a social process grounded in a dynamic of “increasing returns.” Reviewing recent literature in economics and suggesting extensions to the world of politics, the article demonstrates that increasing returns processes are likely to be prevalent, and that good analytical foundations exist for exploring their causes and consequences. The investigation of increasing returns can provide a more rigorous framework for developing some of the key claims of recent scholarship in historical institutionalism: Specific patterns of timing and sequence matter; a wide range of social outcomes may be possible; large consequences may result from relatively small or contingent events; particular courses of action, once introduced, can be almost impossible to reverse; and consequently, political development is punctuated by critical moments or junctures that shape the basic contours of social life.",
+        "apa_citation": "Pierson, P. (2000). Increasing Returns, Path Dependence, and the Study of Politics. American Political Science Review, 94(2), 251–267. https://doi.org/10.2307/2586011"
+      },
+      {
+        "paper_id": "W4384918448",
+        "original_title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+        "korean_title": "Llama 2: 오픈 파운데이션 및 대화형 파인튜닝 모델",
+        "authors": [
+          "Hugo Touvron",
+          "Louis Martin",
+          "Kevin Stone",
+          "Peter Albert",
+          "Amjad Almahairi"
+        ],
+        "venue": "arXiv",
+        "year": 2023,
+        "citation_count": 24431,
+        "doi": "10.48550/arxiv.2307.09288",
+        "url": "https://doi.org/10.48550/arxiv.2307.09288",
+        "pdf_url": "https://arxiv.org/pdf/2307.09288",
+        "total_score": 90,
+        "journal_authority": 85,
+        "methodology_rigor": 95,
+        "practical_impact": 94,
+        "evaluation_comment": "메타(Meta)가 공개한 오픈소스 LLM 기술 보고서로, 폐쇄형 독점 AI 생태계에 대항하여 오픈 모델 생태계를 구축함으로써 글로벌 빅테크 간 비즈니스 모델 경쟁 구도를 근본적으로 뒤바꾼 전략적 실행 사례입니다.",
+        "core_hypothesis": "체계적인 안전성 강화 및 인간 피드백 기반 강화학습(RLHF)을 적용한 오픈 파운데이션 모델은 상용 폐쇄형 독점 모델을 대체할 수 있는 실질적 성능과 안전성을 제공한다.",
+        "methodology": "7B~70B 파라미터 규모의 모델 사전 학습, 거부 샘플링(Rejection sampling) 및 PPO 기반 RLHF를 포함한 고도화된 정렬 엔지니어링 및 벤치마크/인간 블라인드 평가",
+        "key_findings": "오픈소스 모델이 상용 모델과의 성능 격차를 크게 줄였으며, 상업적 이용을 허용함으로써 글로벌 개발자와 기업의 엔터프라이즈 AI 채택 장벽을 획기적으로 낮췄습니다.",
+        "strategic_insight": "오픈 이노베이션을 전략적 수단으로 활용하여 독점 플랫폼의 지대 추구를 무력화하고 인프라 표준을 장악하는 비즈니스 모델 생태계 전략(Commoditize your complement)의 전형을 보여줍니다.",
+        "limitations": "연구기관 동료심사 저널이 아닌 기업 주도 기술 백서 형태이며, 가중치 공개에도 불구하고 훈련 데이터셋의 구체적 구성 내역은 기밀로 유지되어 재현성에 제약이 있습니다.",
+        "tags": [
+          "Open Innovation",
+          "Large Language Models",
+          "Generative AI",
+          "Platform Ecosystem",
+          "Disruptive Technology"
+        ],
+        "original_abstract": "In this work, we develop and release Llama 2, a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama 2-Chat, are optimized for dialogue use cases. Our models outperform open-source chat models on most benchmarks we tested, and based on our human evaluations for helpfulness and safety, may be a suitable substitute for closed-source models. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama 2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.",
+        "apa_citation": "Touvron, H., Martin, L., Stone, K., Albert, P., & Almahairi, A. (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv. https://doi.org/10.48550/arxiv.2307.09288"
+      },
+      {
+        "paper_id": "W2133535394",
+        "original_title": "Dimensionalizing Cultures: The Hofstede Model in Context",
+        "korean_title": "문화의 차원화: 맥락 속의 홉스테더 모델",
+        "authors": [
+          "Geert H. Hofstede"
+        ],
+        "venue": "Online Readings in Psychology and Culture",
+        "year": 2011,
+        "citation_count": 11607,
+        "doi": "10.9707/2307-0919.1014",
+        "url": "https://doi.org/10.9707/2307-0919.1014",
+        "pdf_url": "https://scholarworks.gvsu.edu/cgi/viewcontent.cgi?article=1014&context=orpc",
+        "total_score": 88,
+        "journal_authority": 90,
+        "methodology_rigor": 89,
+        "practical_impact": 86,
+        "evaluation_comment": "글로벌 경영학의 대표 석학인 홉스테더가 자신의 6대 문화 차원 프레임워크를 집대성한 논문으로, 다국적 기업의 글로벌 비즈니스 모델 현지화와 조직 문화 혁신 전략을 수립하는 데 필수적인 지침서입니다.",
+        "core_hypothesis": "국가 및 조직 문화는 권력 거리, 불확실성 회피, 개인주의 등 독립적인 비교 차원으로 구조화될 수 있으며, 이는 기업 조직의 의사결정과 경영 통제 방식에 결정적 차이를 야기한다.",
+        "methodology": "글로벌 다국적 기업 및 수십 개국을 대상으로 한 장기 설문조사 데이터 요인 분석(Factor Analysis) 및 비교 문화 체계화",
+        "key_findings": "국가 문화 차원과 조직 문화 차원은 구별되어야 하며, 해외 시장 진출이나 글로벌 M&A 시 문화적 비호환성이 비즈니스 모델 이식의 주된 실패 원인으로 작용합니다.",
+        "strategic_insight": "글로벌 기업 전략 수립 시 단일한 비즈니스 모델이나 성과 평가 체계를 전 세계에 일률 적용하기보다는, 현지 문화적 차원에 맞춰 인센티브 및 조직 거버넌스를 최적화하는 하이브리드 혁신 전략이 필수적입니다.",
+        "limitations": "국가 단위의 집계 데이터에 의존하여 개별 기업 내 세부 다양성과 디지털 네이티브 세대의 탈문화적 특성을 충분히 반영하지 못할 수 있습니다.",
+        "tags": [
+          "Global Strategy",
+          "Organizational Culture",
+          "Cross-Cultural Management",
+          "Business Model Localization",
+          "Corporate Governance"
+        ],
+        "original_abstract": "This article describes briefly the Hofstede model of six dimensions of national cultures: Power Distance, Uncertainty Avoidance, Individualism/Collectivism, Masculinity/Femininity, Long/Short Term Orientation, and Indulgence/Restraint. It shows the conceptual and research efforts that preceded it and led up to it, and once it had become a paradigm for comparing cultures, research efforts that followed and built on it. The article stresses that dimensions depend on the level of aggregation; it describes the six entirely different dimensions found in the Hofstede et al. (2010) research into organizational cultures. It warns against confusion with value differences at the individual level. It concludes with a look ahead in what the study of dimensions of national cultures and the position of countries on them may still bring.",
+        "apa_citation": "Hofstede, G. H. (2011). Dimensionalizing Cultures: The Hofstede Model in Context. Online Readings in Psychology and Culture, 2(1), 1–26. https://doi.org/10.9707/2307-0919.1014"
+      }
+    ]
+  },
+  {
     "updated_at": "2026-11-25 15:12 KST",
     "keyword": "corporate strategy business model innovation",
     "count": 5,

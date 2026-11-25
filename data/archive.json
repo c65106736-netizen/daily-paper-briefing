@@ -1,0 +1,180 @@
+[
+  {
+    "updated_at": "2026-11-25 14:36 KST",
+    "keyword": "corporate strategy business model innovation",
+    "count": 5,
+    "papers": [
+      {
+        "paper_id": "W2089402107",
+        "original_title": "Dynamic capabilities: what are they?",
+        "korean_title": "동적 역량이란 무엇인가?",
+        "authors": [
+          "Kathleen M. Eisenhardt",
+          "Jeffrey A. Martin"
+        ],
+        "venue": "Strategic Management Journal",
+        "year": 2000,
+        "citation_count": 20716,
+        "doi": "10.1002/1097-0266(200010/11)21:10/11<1105::aid-smj133>3.0.co;2-e",
+        "url": "https://doi.org/10.1002/1097-0266(200010/11)21:10/11<1105::aid-smj133>3.0.co;2-e",
+        "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/1097-0266%28200010/11%2921%3A10/11%3C1105%3A%3AAID-SMJ133%3E3.0.CO%3B2-E",
+        "total_score": 98,
+        "journal_authority": 99,
+        "methodology_rigor": 96,
+        "practical_impact": 98,
+        "evaluation_comment": "전략 경영 분야 최고 권위 저널인 Strategic Management Journal에 게재된 논문으로, 자원기반관점(RBV)의 한계를 극복하고 동적 역량을 구체적 경영 프로세스로 정립하여 기업 전략 수립에 지대한 영향을 미친 필독 논문입니다.",
+        "core_hypothesis": "동적 역량은 모호하거나 자가당착적인 개념이 아니라 신제품 개발, 전략적 의사결정 등 구체적이고 식별 가능한 프로세스이며, 시장 변동성에 따라 역량의 구체적 성격과 진화 메커니즘이 달라진다.",
+        "methodology": "기존 전략 경영 이론 및 자원기반관점(RBV) 문헌에 대한 논리적 재구성 및 개념적 통합 접근법 활용.",
+        "key_findings": "동적 역량은 기업 고유적이지만 산업 전반에 걸쳐 베스트 프랙티스 형태의 공통성을 가집니다. 완만한 동적 시장에서는 정교하고 분석적인 루틴으로 나타나는 반면, 고속 변동 시장에서는 경험적이고 단순하며 가변적인 프로세스로 작동합니다.",
+        "strategic_insight": "비즈니스 모델 혁신 추진 시 무조건적인 정밀 분석보다 시장의 속도에 적응하는 동적 역량을 구축해야 합니다. 변동성이 극심한 시장일수록 시도와 학습 중심의 가벼운 프로세스가 지속 가능한 경쟁 우위를 창출합니다.",
+        "limitations": "개념적 논의에 중심을 두고 있어 개별 기업이 자사의 동적 역량 수준을 정량적으로 측정하고 평가하기 위한 구체적 지표 제시는 상대적으로 미진합니다.",
+        "tags": [
+          "Strategic Management",
+          "Dynamic Capabilities",
+          "Resource-Based View",
+          "Business Model Innovation",
+          "Competitive Advantage"
+        ],
+        "original_abstract": "This paper focuses on dynamic capabilities and, more generally, the resource-based view of the firm. We argue that dynamic capabilities are a set of specific and identifiable processes such as product development, strategic decision making, and alliancing. They are neither vague nor tautological. Although dynamic capabilities are idiosyncratic in their details and path dependent in their emergence, they have significant commonalities across firms (popularly termed ‘best practice’). This suggests that they are more homogeneous, fungible, equifinal, and substitutable than is usually assumed. In moderately dynamic markets, dynamic capabilities resemble the traditional conception of routines. They are detailed, analytic, stable processes with predictable outcomes. In contrast, in high-velocity markets, they are simple, highly experiential and fragile processes with unpredictable outcomes. Finally, well-known learning mechanisms guide the evolution of dynamic capabilities. In moderately dynamic markets, the evolutionary emphasis is on variation. In high-velocity markets, it is on selection. At the level of RBV, we conclude that traditional RBV misidentifies the locus of long-term competitive advantage in dynamic markets, overemphasizes the strategic logic of leverage, and reaches a boundary condition in high-velocity markets. Copyright © 2000 John Wiley & Sons, Ltd.",
+        "apa_citation": "Eisenhardt, K. M., & Martin, J. A. (2000). Dynamic capabilities: what are they? Strategic Management Journal, 21(10‐11), 1105-1121."
+      },
+      {
+        "paper_id": "W2095561982",
+        "original_title": "Architectural Innovation: The Reconfiguration of Existing Product Technologies and the Failure of Established Firms",
+        "korean_title": "아키텍처 혁신: 기존 제품 기술의 재구성과 기존 우위 기업의 실패",
+        "authors": [
+          "Rebecca M. Henderson",
+          "Kim B. Clark"
+        ],
+        "venue": "Administrative Science Quarterly",
+        "year": 1990,
+        "citation_count": 10795,
+        "doi": "10.2307/2393549",
+        "url": "https://doi.org/10.2307/2393549",
+        "pdf_url": "",
+        "total_score": 96,
+        "journal_authority": 98,
+        "methodology_rigor": 95,
+        "practical_impact": 96,
+        "evaluation_comment": "혁신 연구의 고전으로 점진적/급진적 혁신의 이분법적 틀을 넘어 아키텍처 혁신 개념을 제시함으로써, 거대한 기존 기업이 왜 작아 보이는 기술 구조 변화에 무너지는지 명쾌하게 설명합니다.",
+        "core_hypothesis": "제품의 기본 핵심 요소기술은 유지하되 요소 간의 연결 방식(아키텍처)을 바꾸는 아키텍처 혁신은 기존 기업의 조직적 지식 구조를 무력화하여 선도 기업의 도전을 유발한다.",
+        "methodology": "세계 반도체 리소그래피 노광 장비 산업의 기술 진화 및 참가 기업들에 대한 종단적 세대별 역사적 사례 연구 및 실증 분석.",
+        "key_findings": "기존 선도 기업들은 조직 내 정보 처리 절차와 커뮤니케이션 구조에 기존 아키텍처 지식이 깊게 내재되어 있어, 제품 아키텍처 변혁 신호를 제대로 인식하지 못하거나 기존 루틴을 고집하다 실패합니다.",
+        "strategic_insight": "비즈니스 모델 혁신 시 구성 요소의 수정을 넘어 밸류체인과 비즈니스 구성 요소 간 아키텍처 결합 방식을 혁신해야 합니다. 조직의 기존 커뮤니케이션 경로를 파괴하고 독립 부서로 분리해 대응하는 전략이 필수적입니다.",
+        "limitations": "하드웨어 제조업(반도체 장비) 사례에 기반하고 있어 소프트웨어 및 디지털 플랫폼 비즈니스 모델로 직접 적용할 때 추가적인 변형 해석이 필요합니다.",
+        "tags": [
+          "Architectural Innovation",
+          "Corporate Strategy",
+          "Technology Management",
+          "Incumbent Failure",
+          "Organizational Knowledge"
+        ],
+        "original_abstract": "This paper demonstrates that the traditional categorization of innovation as either incremental or radical is incomplete and potentially misleading and does not account for the sometimes disastrous effects on industry incumbents of seemingly minor improvements in technological products. We examine such innovations more closely and, distinguishing between the components of a product and the ways they are integrated into the system that is the product \"architecture,\" define them as innovations that change the architecture of a product without changing its components. We show that architectural innovations destroy the usefulness of the architectural knowledge of established firms, and that since architectural knowledge tends to become embedded in the structure and information-processing procedures of established organizations, this destruction is difficult for firms to recognize and hard to correct. Architectural innovation therefore presents established organizations with subtle challenges that may have significant competitive implications. We illustrate the concept's explanatory force through an empirical study of the semiconductor photolithographic alignment equipment industry, which has experienced a number of architectural innovations.",
+        "apa_citation": "Henderson, R. M., & Clark, K. B. (1990). Architectural innovation: The reconfiguration of existing product technologies and the failure of established firms. Administrative Science Quarterly, 35(1), 9-30."
+      },
+      {
+        "paper_id": "W2172157658",
+        "original_title": "Exploring internal stickiness: Impediments to the transfer of best practice within the firm",
+        "korean_title": "내부 끈적임 탐구: 기업 내 최선의 실행방안 이전에 대한 장애요인",
+        "authors": [
+          "Gabriel Szulanski"
+        ],
+        "venue": "Strategic Management Journal",
+        "year": 1996,
+        "citation_count": 10008,
+        "doi": "10.1002/smj.4250171105",
+        "url": "https://doi.org/10.1002/smj.4250171105",
+        "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/smj.4250171105",
+        "total_score": 94,
+        "journal_authority": 97,
+        "methodology_rigor": 94,
+        "practical_impact": 93,
+        "evaluation_comment": "기업 전략 실행 단계에서 핵심 과제인 내부 성공 사례(Best Practice) 이전에 대한 장애요인을 엄밀한 다기업 실증 연구로 입증하여 조직 전략 수립에 지대한 공헌을 함.",
+        "core_hypothesis": "지식 이전의 성공을 방해하는 내부 끈적임(Internal Stickiness)의 주원인은 조직 구성원의 동기 부족이 아니라 지식의 특성(인과적 모호성)과 수신자의 학습 역량 한계이다.",
+        "methodology": "8개 다국적 기업 내 122개 지식 이전 프로젝트(총 271개 관측치) 데이터셋을 활용한 정전편상관분석(Canonical Correlation Analysis).",
+        "key_findings": "지식 이전의 주요 장벽은 수신 조직의 흡수 역량(Absorptive Capacity) 부족, 지식 자체의 인과적 모호성(Causal Ambiguity), 그리고 이전 주체와 수신 주체 간의 원만하지 않은 관계였습니다.",
+        "strategic_insight": "전략적 혁신 및 신규 비즈니스 모델을 전사적으로 확산하기 위해서는 단순한 성과 보상체계 설계보다 구성원의 지식 수용 및 흡수 역량을 키우고 지식 공유 프레임워크를 투명하게 체계화해야 합니다.",
+        "limitations": "지식 이전 과정의 고유한 질적 맥락이나 문화적 차이가 계량적 매개변수에 전적으로 담기지 못할 위험이 있습니다.",
+        "tags": [
+          "Knowledge Transfer",
+          "Internal Stickiness",
+          "Best Practice",
+          "Absorptive Capacity",
+          "Strategic Execution"
+        ],
+        "original_abstract": "The ability to transfer best practices internally is critical to a firm's ability to build competitive advantage through the appropriation of rents from scarce internal knowledge. Just as a firm's distinctive competencies might be difficult for other firms to imitate, its best practices could be difficult to imitate internally. Yet, little systematic attention has been paid to such internal stickiness. The author analyzes internal stickiness of knowledge transfer and tests the resulting model using canonical correlation analysis of a data set consisting of 271 observations of 122 best‐practice transfers in eight companies. Contrary to conventional wisdom that blames primarily motivational factors, the study findings show the major barriers to internal knowledge transfer to be knowledge‐related factors such as the recipient's lack of absorptive capacity, causal ambiguity, and an arduous relationship between the source and the recipient.",
+        "apa_citation": "Szulanski, G. (1996). Exploring internal stickiness: Impediments to the transfer of best practice within the firm. Strategic Management Journal, 17(S2), 27-43."
+      },
+      {
+        "paper_id": "W2756283300",
+        "original_title": "Conceptualizing the circular economy: An analysis of 114 definitions",
+        "korean_title": "순환경제의 개념화: 114개 정의에 대한 분석",
+        "authors": [
+          "Julian Kirchherr",
+          "Denise Reike",
+          "Marko P. Hekkert"
+        ],
+        "venue": "Resources Conservation and Recycling",
+        "year": 2017,
+        "citation_count": 13084,
+        "doi": "10.1016/j.resconrec.2017.09.005",
+        "url": "https://doi.org/10.1016/j.resconrec.2017.09.005",
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/S0921344917302835/pdf",
+        "total_score": 92,
+        "journal_authority": 90,
+        "methodology_rigor": 93,
+        "practical_impact": 94,
+        "evaluation_comment": "지속가능경영 및 ESG 분야의 비즈니스 모델 혁신 프레임워크로 주목받는 순환경제 개념을 114개 학술·실무 정의를 통해 체계적으로 종합 분석한 고인용 연구입니다.",
+        "core_hypothesis": "기존 순환경제 논의는 파편화되어 있으며, 밸류체인 전체의 시스템적 전환보다는 단순 3R(Reduce, Reuse, Recycle) 활동에 과도하게 편중되어 있다.",
+        "methodology": "수집된 114개의 순환경제 정의 데이터를 17개 분석 차원에 따라 코딩하고 분석한 체계적 문헌 고찰(Systematic Literature Review) 및 코딩 체계화.",
+        "key_findings": "대다수의 순환경제 정의는 단기 경제적 이익과 환경 품질 개선을 강조하지만, 비즈니스 모델 혁신 및 소비자 역할과 같은 핵심 동인(Enabler)과 시스템적 변화 필요성에 대한 서술은 부족합니다.",
+        "strategic_insight": "친환경 비즈니스 모델 혁신을 도모하는 기업은 자원 재활용이라는 지엽적 시각을 벗어나 자원 순환을 촉진할 수 있는 전사적 비즈니스 아키텍처 및 소비자 참여 중심의 밸류체인 재설계를 추진해야 합니다.",
+        "limitations": "문헌 데이터 분석에 기반한 개념적 구조화 연구이므로 기업 실무 현장에서의 구체적 ROI 수치나 경제적 성과 측정을 직접 검증하지는 않았습니다.",
+        "tags": [
+          "Circular Economy",
+          "Business Model Innovation",
+          "Sustainability Strategy",
+          "Systemic Shift",
+          "Conceptual Analysis"
+        ],
+        "original_abstract": "The circular economy concept has gained momentum both among scholars and practitioners. However, critics claim that it means many different things to different people. This paper provides further evidence for these critics. The aim of this paper is to create transparency regarding the current understandings of the circular economy concept. For this purpose, we have gathered 114 circular economy definitions which were coded on 17 dimensions. Our findings indicate that the circular economy is most frequently depicted as a combination of reduce, reuse and recycle activities, whereas it is oftentimes not highlighted that CE necessitates a systemic shift. We further find that the definitions show few explicit linkages of the circular economy concept to sustainable development. The main aim of the circular economy is considered to be economic prosperity, followed by environmental quality; its impact on social equity and future generations is barely mentioned. Furthermore, neither business models nor consumers are frequently outlined as enablers of the circular economy. We critically discuss the various circular economy conceptualizations throughout this paper. Overall, we hope to contribute via this study towards the coherence of the circular economy concept; we presume that significantly varying circular economy definitions may eventually result in the collapse of the concept.",
+        "apa_citation": "Kirchherr, J., Reike, D., & Hekkert, M. P. (2017). Conceptualizing the circular economy: An analysis of 114 definitions. Resources, Conservation and Recycling, 127, 221-232."
+      },
+      {
+        "paper_id": "W3126081245",
+        "original_title": "Measuring Economic Policy Uncertainty*",
+        "korean_title": "경제 정책 불확실성의 측정",
+        "authors": [
+          "Scott Baker",
+          "Nicholas Bloom",
+          "Steven J. Davis"
+        ],
+        "venue": "The Quarterly Journal of Economics",
+        "year": 2016,
+        "citation_count": 14945,
+        "doi": "10.1093/qje/qjw024",
+        "url": "https://doi.org/10.1093/qje/qjw024",
+        "pdf_url": "",
+        "total_score": 91,
+        "journal_authority": 99,
+        "methodology_rigor": 95,
+        "practical_impact": 88,
+        "evaluation_comment": "최고 권위 경제학 저널 QJE에 게재된 논문으로, 불확실성 지표(EPU) 구축을 통해 기업의 전략적 자본 투자 및 고용 의사결정에 미치는 매크로적 영향을 빅데이터 분석으로 입증함.",
+        "core_hypothesis": "미디어 언론 보도 텍스트 기반의 경제 정책 불확실성(EPU) 지수는 실제 정세 불안 및 거시경제 불확실성을 계량화하고 기업의 신규 투자 축소를 설명한다.",
+        "methodology": "12,000개 이상의 신문 기사 텍스트 마이닝, 인간 검증 코딩, 패널 벡터자기회귀(PVAR) 및 기업 수준 데이터 결합 실증 분석.",
+        "key_findings": "정책 불확실성이 급증할 때 정책 민감 산업(방산, 금융, 헬스케어, 인프라 등) 기업의 주가 변동성이 확대되고, 기업 실물 투자와 고용 창출이 뚜렷하게 위축됩니다.",
+        "strategic_insight": "불확실성이 일상화된 경영 환경에서 기업 전략 수립 시 불확실성 지수 변화를 시나리오 플래닝에 반영하고, 고정비 구조를 유연화하는 비즈니스 모델 민첩성(Agility)을 확보해야 합니다.",
+        "limitations": "신문 기사 텍스트 언급 빈도를 기반으로 지수를 산출하므로 미디어 편향이나 시대별 언론 매체 구조 변화의 영향을 받을 수 있습니다.",
+        "tags": [
+          "Economic Policy Uncertainty",
+          "Corporate Strategy",
+          "Investment Decision",
+          "Text Analysis",
+          "Macroeconomics"
+        ],
+        "original_abstract": "We develop a new index of economic policy uncertainty (EPU) based on newspaper coverage frequency. Several types of evidence—including human readings of 12,000 newspaper articles—indicate that our index proxies for movements in policy-related economic uncertainty. Our U.S. index spikes near tight presidential elections, Gulf Wars I and II, the 9/11 attacks, the failure of Lehman Brothers, the 2011 debt ceiling dispute, and other major battles over fiscal policy. Using firm-level data, we find that policy uncertainty is associated with greater stock price volatility and reduced investment and employment in policy-sensitive sectors like defense, health care, finance, and infrastructure construction. At the macro level, innovations in policy uncertainty foreshadow declines in investment, output, and employment in the United States and, in a panel vector autoregressive setting, for 12 major economies. Extending our U.S. index back to 1900, EPU rose dramatically in the 1930s (from late 1931) and has drifted upward since the 1960s.",
+        "apa_citation": "Baker, S. R., Bloom, N., & Davis, S. J. (2016). Measuring economic policy uncertainty. The Quarterly Journal of Economics, 131(4), 1593-1636."
+      }
+    ]
+  }
+]

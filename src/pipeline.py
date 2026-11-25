@@ -142,16 +142,27 @@ def analyze_with_gemini(client, keyword, candidates, target_count=5):
         "required": ["selected_papers"]
     }
 
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=response_schema,
-            temperature=0.2
-        )
-    )
-    return json.loads(response.text).get("selected_papers", [])
+    models_to_try = ["gemini-3.0-flash", "gemini-2.0-flash"]
+    last_error = None
+
+    for model_name in models_to_try:
+        try:
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=response_schema,
+                    temperature=0.2
+                )
+            )
+            return json.loads(response.text).get("selected_papers", [])
+        except Exception as e:
+            last_error = e
+            print(f"모델 {model_name} 호출 실패, 다음 모델 시도 중: {e}")
+            continue
+
+    raise RuntimeError(f"모든 Gemini 모델 호출 실패: {last_error}")
 
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")

@@ -478,6 +478,29 @@
       alert("APA 인용 출처가 복사되었습니다.");
     }
 
+    async function callGeminiWithFallback(apiKey, prompt) {
+      const models = ["gemini-3.0-flash", "gemini-2.0-flash"];
+      let lastErr = null;
+      for (const m of models) {
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { responseMimeType: "application/json", temperature: 0.2 }
+            })
+          });
+          const data = await res.json();
+          if (data.error) throw new Error(data.error.message);
+          return JSON.parse(data.candidates[0].content.parts[0].text);
+        } catch (err) {
+          lastErr = err;
+        }
+      }
+      throw lastErr;
+    }
+
     async function runLiveKeywordSearch(saveAsDefault) {
       const keyword = document.getElementById("keywordInput").value.trim();
       if (!keyword) return alert("검색할 키워드를 입력해 주세요.");
@@ -495,7 +518,6 @@
         </div>`;
 
       try {
-        // 1. OpenAlex API 실시간 조회 (CORS 지원)
         const oaRes = await fetch(`https://api.openalex.org/works?search=${encodeURIComponent(keyword)}&per-page=12&filter=has_abstract:true&sort=cited_by_count:desc`);
         const oaJson = await oaRes.json();
         const candidates = (oaJson.results || []).map(item => {
@@ -521,24 +543,12 @@
 
         if (candidates.length === 0) throw new Error("해당 키워드로 초록이 공개된 논문을 찾지 못했습니다. 영문 키워드로 다시 시도해 보세요.");
 
-        // 2. Gemini API 실시간 전문 평가 및 요약
         const prompt = `당신은 글로벌 전략컨설팅 펌의 수석 애널리스트입니다. 키워드 "${keyword}"에 대해 아래 논문 후보 중 전문성과 실무 가치가 가장 높은 5편을 선정해 JSON으로만 응답하세요.
 후보: ${JSON.stringify(candidates.slice(0, 10))}
 반드시 다음 JSON 구조를 지키세요:
 {"papers":[{"paper_id":"","original_title":"","korean_title":"","authors":[""],"venue":"","year":2025,"citation_count":0,"doi":"","url":"","pdf_url":"","total_score":92,"journal_authority":90,"methodology_rigor":91,"practical_impact":95,"evaluation_comment":"","core_hypothesis":"","methodology":"","key_findings":"","strategic_insight":"","limitations":"","original_abstract":"후보 영문 초록 원문 그대로","apa_citation":""}]}`;
 
-        const gRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { responseMimeType: "application/json", temperature: 0.2 }
-          })
-        });
-        const gJson = await gRes.json();
-        if (gJson.error) throw new Error(gJson.error.message);
-
-        const parsed = JSON.parse(gJson.candidates[0].content.parts[0].text);
+        const parsed = await callGeminiWithFallback(apiKey, prompt);
         const nowStr = new Date().toLocaleString("ko-KR") + " (실시간 조회)";
         renderBriefing({
           updated_at: nowStr,
@@ -546,7 +556,6 @@
           papers: parsed.papers || []
         });
 
-        // 3. 내일부터 기본 키워드로 영구 저장 요청 시 GitHub keywords.json 업데이트
         if (saveAsDefault) {
           await updateGitHubDefaultKeyword(keyword);
         }

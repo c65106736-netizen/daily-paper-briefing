@@ -18,6 +18,7 @@
       --badge-bg: #eff6ff;
       --badge-text: #1d4ed8;
       --score-high: #059669;
+      --star-active: #f59e0b;
       --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
     }
     [data-theme="dark"] {
@@ -33,6 +34,7 @@
       --badge-bg: #1e293b;
       --badge-text: #60a5fa;
       --score-high: #10b981;
+      --star-active: #fbbf24;
       --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,7 +65,7 @@
     }
     .brand h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--primary); }
     .brand p { font-size: 0.85rem; color: var(--text-muted); }
-    .header-actions { display: flex; gap: 8px; align-items: center; }
+    .header-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     button {
       cursor: pointer;
       border: 1px solid var(--border);
@@ -82,6 +84,26 @@
       border-color: var(--primary);
     }
     button.btn-primary:hover { background: var(--primary-hover); }
+    button.btn-fav-tab.active {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: var(--star-active);
+    }
+    [data-theme="dark"] button.btn-fav-tab.active {
+      background: #451a03;
+      color: #fbbf24;
+      border-color: var(--star-active);
+    }
+    .fav-btn.bookmarked {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: var(--star-active);
+    }
+    [data-theme="dark"] .fav-btn.bookmarked {
+      background: #451a03;
+      color: #fbbf24;
+      border-color: var(--star-active);
+    }
     .search-panel {
       display: flex;
       gap: 10px;
@@ -272,13 +294,14 @@
       <div class="header-top">
         <div class="brand">
           <h1>STRATEGIC RESEARCH RADAR</h1>
-          <p>매일 자동 수집·전문성 정량 평가 기반 경영·기술 논문 인텔리전스</p>
+          <p>매일 자동 수집·전문성 정량 평가 기반 경영·기술 논문 인텔리전스 (30일 쿨다운 재추천)</p>
         </div>
         <div class="header-actions">
+          <button id="favTabBtn" class="btn-fav-tab" onclick="toggleFavoritesView()">⭐ 즐겨찾기 (<span id="favCountBadge">0</span>)</button>
           <select id="archiveSelect" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.84rem;">
             <option value="latest">최신 브리핑 불러오는 중...</option>
           </select>
-          <button onclick="openSettings()">⚙️ API·키워드 영구연동 설정</button>
+          <button onclick="openSettings()">⚙️ 설정</button>
           <button onclick="toggleTheme()">🌓 테마</button>
         </div>
       </div>
@@ -294,10 +317,10 @@
   <main class="container">
     <div class="status-bar">
       <div>
-        <span class="status-pill"><span class="dot"></span> 적용 키워드: <span id="activeKeyword">-</span></span>
+        <span class="status-pill"><span class="dot"></span> <span id="modeLabel">적용 키워드:</span> <span id="activeKeyword">-</span></span>
       </div>
       <div style="color: var(--text-muted);">
-        마지막 업데이트: <strong id="updatedAt">-</strong> | 선정 논문: <strong id="paperCount">0</strong>편
+        마지막 업데이트: <strong id="updatedAt">-</strong> | 표시 논문: <strong id="paperCount">0</strong>편
       </div>
     </div>
 
@@ -331,6 +354,76 @@
 
   <script>
     let archiveData = [];
+    let currentBriefingData = null;
+    let currentRenderedPapers = [];
+    let isFavoritesMode = false;
+
+    function getFavorites() {
+      try {
+        return JSON.parse(localStorage.getItem("bookmarked_papers") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function saveFavorites(list) {
+      localStorage.setItem("bookmarked_papers", JSON.stringify(list));
+      updateFavBadge();
+    }
+
+    function updateFavBadge() {
+      const count = getFavorites().length;
+      document.getElementById("favCountBadge").textContent = count;
+    }
+
+    function isBookmarked(paperId) {
+      return getFavorites().some(p => p.paper_id === paperId);
+    }
+
+    function toggleBookmark(index) {
+      const paper = currentRenderedPapers[index];
+      if (!paper) return;
+      let favs = getFavorites();
+      const existsIdx = favs.findIndex(p => p.paper_id === paper.paper_id);
+
+      if (existsIdx >= 0) {
+        favs.splice(existsIdx, 1);
+      } else {
+        favs.unshift({ ...paper, bookmarked_at: new Date().toLocaleDateString("ko-KR") });
+      }
+      saveFavorites(favs);
+
+      if (isFavoritesMode) {
+        renderFavorites();
+      } else {
+        const btn = document.getElementById(`fav-btn-${index}`);
+        if (btn) {
+          const active = existsIdx < 0;
+          btn.classList.toggle("bookmarked", active);
+          btn.textContent = active ? "⭐ 즐겨찾기됨" : "☆ 즐겨찾기";
+        }
+      }
+    }
+
+    function toggleFavoritesView() {
+      isFavoritesMode = !isFavoritesMode;
+      const tabBtn = document.getElementById("favTabBtn");
+      tabBtn.classList.toggle("active", isFavoritesMode);
+
+      if (isFavoritesMode) {
+        renderFavorites();
+      } else if (currentBriefingData) {
+        renderBriefing(currentBriefingData);
+      }
+    }
+
+    function renderFavorites() {
+      const favs = getFavorites();
+      document.getElementById("modeLabel").textContent = "보관함:";
+      document.getElementById("activeKeyword").textContent = "⭐ 내 즐겨찾기 논문 목록";
+      document.getElementById("updatedAt").textContent = "브라우저 영구 보관";
+      renderPaperCards(favs, true);
+    }
 
     function toggleTheme() {
       const current = document.documentElement.getAttribute("data-theme");
@@ -360,6 +453,7 @@
     }
 
     async function loadInitialData() {
+      updateFavBadge();
       try {
         const res = await fetch("./data/latest.json?t=" + Date.now());
         if (!res.ok) throw new Error("아직 첫 자동 수집이 실행되지 않았습니다.");
@@ -373,7 +467,11 @@
           select.innerHTML = archiveData.map((item, idx) =>
             `<option value="${idx}">${item.updated_at} (${item.keyword})</option>`
           ).join("");
-          select.onchange = (e) => renderBriefing(archiveData[e.target.value]);
+          select.onchange = (e) => {
+            isFavoritesMode = false;
+            document.getElementById("favTabBtn").classList.remove("active");
+            renderBriefing(archiveData[e.target.value]);
+          };
         }
       } catch (err) {
         document.getElementById("paperContainer").innerHTML = `
@@ -381,29 +479,38 @@
             <h3>첫 데이터 생성 대기 중</h3>
             <p style="margin-top:8px; color:var(--text-muted);">
               GitHub 저장소의 <strong>Actions → Daily Strategic Paper Pipeline → Run workflow</strong>를 한 번 실행하면 첫 5편의 논문 리포트가 생성됩니다.<br/>
-              또는 우측 상단 <strong>[⚙️ API·키워드 영구연동 설정]</strong>에 Gemini API 키를 입력하고 위 검색창에서 바로 논문을 조회할 수 있습니다.
+              또는 우측 상단 <strong>[⚙️ 설정]</strong>에 Gemini API 키를 입력하고 위 검색창에서 바로 논문을 조회할 수 있습니다.
             </p>
           </div>`;
       }
     }
 
     function renderBriefing(data) {
+      currentBriefingData = data;
+      document.getElementById("modeLabel").textContent = "적용 키워드:";
       document.getElementById("activeKeyword").textContent = data.keyword || "-";
       document.getElementById("keywordInput").value = data.keyword || "";
       document.getElementById("updatedAt").textContent = data.updated_at || "-";
-      document.getElementById("paperCount").textContent = (data.papers || []).length;
+      renderPaperCards(data.papers || [], false);
+    }
+
+    function renderPaperCards(papers, isFavList) {
+      currentRenderedPapers = papers;
+      document.getElementById("paperCount").textContent = papers.length;
 
       const container = document.getElementById("paperContainer");
-      if (!data.papers || data.papers.length === 0) {
-        container.innerHTML = `<div class="loading-box">표시할 논문 데이터가 없습니다.</div>`;
+      if (papers.length === 0) {
+        container.innerHTML = `<div class="loading-box">${isFavList ? "아직 즐겨찾기한 논문이 없습니다. 각 논문 하단의 [☆ 즐겨찾기] 버튼을 눌러 저장해 보세요." : "표시할 논문 데이터가 없습니다."}</div>`;
         return;
       }
 
-      container.innerHTML = data.papers.map((p, i) => `
+      container.innerHTML = papers.map((p, i) => {
+        const saved = isBookmarked(p.paper_id);
+        return `
         <article class="paper-card">
           <div class="card-top">
             <div style="flex:1; min-width:260px;">
-              <span class="venue-badge">#${i + 1} · ${escapeHtml(p.venue)} (${p.year}) · 피인용 ${p.citation_count}회</span>
+              <span class="venue-badge">#${i + 1} · ${escapeHtml(p.venue)} (${p.year}) · 피인용 ${p.citation_count}회 ${p.bookmarked_at && isFavList ? `· 저장일 ${escapeHtml(p.bookmarked_at)}` : ""}</span>
               <h2 class="korean-title">${escapeHtml(p.korean_title)}</h2>
               <div class="orig-title">${escapeHtml(p.original_title)}</div>
             </div>
@@ -447,8 +554,9 @@
               ${p.doi ? ` · <strong>DOI:</strong> ${escapeHtml(p.doi)}` : ""}
             </div>
             <div class="link-group">
-              <button onclick="toggleDrawer('abs-${i}')">📄 영문 원문(Abstract) 보기</button>
-              <button onclick="toggleDrawer('cit-${i}')">📚 출처 및 APA 인용 복사</button>
+              <button id="fav-btn-${i}" class="fav-btn ${saved ? "bookmarked" : ""}" onclick="toggleBookmark(${i})">${saved ? "⭐ 즐겨찾기됨" : "☆ 즐겨찾기"}</button>
+              <button onclick="toggleDrawer('abs-${i}')">📄 영문 원문 보기</button>
+              <button onclick="toggleDrawer('cit-${i}')">📚 APA 인용 복사</button>
               ${p.url ? `<a class="link-btn" href="${escapeAttr(p.url)}" target="_blank" rel="noopener">🔗 원문 페이지</a>` : ""}
               ${p.pdf_url ? `<a class="link-btn" href="${escapeAttr(p.pdf_url)}" target="_blank" rel="noopener">📥 무료 PDF</a>` : ""}
             </div>
@@ -464,7 +572,7 @@
             <button onclick="copyCitation('apa-text-${i}')">📋 인용 문구 복사</button>
           </div>
         </article>
-      `).join("");
+      `}).join("");
     }
 
     function toggleDrawer(id) {
@@ -506,9 +614,12 @@
 
       const apiKey = localStorage.getItem("gemini_api_key");
       if (!apiKey) {
-        alert("웹사이트에서 즉시 검색하려면 먼저 [⚙️ API·키워드 영구연동 설정]에서 Gemini API 키를 입력해 주세요.");
+        alert("웹사이트에서 즉시 검색하려면 먼저 [⚙️ 설정]에서 Gemini API 키를 입력해 주세요.");
         return openSettings();
       }
+
+      isFavoritesMode = false;
+      document.getElementById("favTabBtn").classList.remove("active");
 
       document.getElementById("paperContainer").innerHTML = `
         <div class="loading-box">

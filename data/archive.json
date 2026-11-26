@@ -1,5 +1,156 @@
 [
   {
+    "updated_at": "2026-11-27 07:46 KST",
+    "keyword": "corporate strategy business model innovation",
+    "count": 4,
+    "papers": [
+      {
+        "paper_id": "W3210383951",
+        "original_title": "Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R: A Workbook",
+        "korean_title": "R을 활용한 부분최소제곱 구조방정식 모델링(PLS-SEM): 실습 워크북",
+        "authors": [
+          "Joseph F. Hair",
+          "G. Tomas M. Hult",
+          "Christian M. Ringle",
+          "Marko Sarstedt",
+          "Nicholas Patrick Danks"
+        ],
+        "venue": "Classroom companion: business",
+        "year": 2021,
+        "citation_count": 15485,
+        "doi": "10.1007/978-3-030-80519-7",
+        "url": "https://doi.org/10.1007/978-3-030-80519-7",
+        "pdf_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-030-80519-7.pdf",
+        "total_score": 93,
+        "journal_authority": 90,
+        "methodology_rigor": 96,
+        "practical_impact": 94,
+        "evaluation_comment": "기업 전략 및 비즈니스 모델 혁신 연구에서 복합적 인과관계를 검증하는 핵심 통계 방법론인 PLS-SEM을 오픈소스 R 기반으로 체계화한 권위 있는 실무 지침서입니다.",
+        "core_hypothesis": "오픈소스 R 환경과 SEMinR 패키지를 활용한 PLS-SEM 분석 프레임워크는 기업 전략, 마케팅, 비즈니스 모델 혁신의 복합 잠재변수 구조를 통계적으로 엄밀하고 재현 가능하게 실증할 수 있다.",
+        "methodology": "SEMinR 패키지를 활용한 측정 모델(신뢰도, 타당도) 및 구조 모델(결정계수 R², 효과크기 f², 예측력 Q²) 평가 알고리즘 기반 실습 분석.",
+        "key_findings": "표본 크기 제약이나 비정규성 데이터 환경에서도 다차원 비즈니스 역량과 성과 간의 매개 및 조절 경로를 안정적으로 추정할 수 있음을 규명.",
+        "strategic_insight": "신규 비즈니스 모델의 수용도, 디지털 전환 역량, 고객 가치 제안 등 직접 측정이 어려운 전략적 무형자산의 성과 기여도를 데이터 기반으로 정량화하고 전략적 자원 배분 의사결정에 직결시킬 수 있습니다.",
+        "limitations": "이론적 모델 탐색 및 예측에는 강력하나, 전역적 적합도 지표(CB-SEM의 적합도)를 통한 모형 확증 검증에는 추가적인 해석 주의가 요구됨.",
+        "tags": [
+          "Business Model Innovation",
+          "Corporate Strategy",
+          "PLS-SEM",
+          "Quantitative Methodology",
+          "R Analytics"
+        ],
+        "original_abstract": "This is an open-access step-by-step guide to analyzing PLS models using R, especially using the SEMinR package and with in-depth case studies.",
+        "apa_citation": "Hair, J. F., Hult, G. T. M., Ringle, C. M., Sarstedt, M., & Danks, N. P. (2021). Partial least squares structural equation modeling (PLS-SEM) using R: A workbook. Springer Nature. https://doi.org/10.1007/978-3-030-80519-7"
+      },
+      {
+        "paper_id": "W2020155291",
+        "original_title": "Fostering implementation of health services research findings into practice: a consolidated framework for advancing implementation science",
+        "korean_title": "연구 성과의 실무 실행 촉진: 실행과학 고도화를 위한 통합 프레임워크(CFIR)",
+        "authors": [
+          "Laura J. Damschroder",
+          "David Clark Aron",
+          "Rosalind E. Keith",
+          "Susan R. Kirsh",
+          "Jeffery A. Alexander"
+        ],
+        "venue": "Implementation Science",
+        "year": 2009,
+        "citation_count": 16854,
+        "doi": "10.1186/1748-5908-4-50",
+        "url": "https://doi.org/10.1186/1748-5908-4-50",
+        "pdf_url": "https://implementationscience.biomedcentral.com/counter/pdf/10.1186/1748-5908-4-50",
+        "total_score": 90,
+        "journal_authority": 94,
+        "methodology_rigor": 89,
+        "practical_impact": 88,
+        "evaluation_comment": "비즈니스 모델 혁신의 가장 큰 난제인 '실행(Implementation) 실패'를 극복하기 위한 다층적 조직 변화 및 실행 관리 체계를 제시하는 기념비적 연구입니다.",
+        "core_hypothesis": "혁신적 아이디어나 비즈니스 모델이 조직 내에 성공적으로 안착하려면 중재 특성, 외부 환경, 내부 환경, 개인 특성, 실행 프로세스의 5대 다차원 요인이 통합적으로 관리되어야 한다.",
+        "methodology": "스노우볼 샘플링 기반 문헌 고찰을 통해 분절된 19개 이상의 구현 이론과 프레임워크를 수렴·재분류한 메타 프레임워크 구축 방법론.",
+        "key_findings": "혁신 자체의 강점뿐 아니라 조직 문화, 리더십 몰입도, 인센티브, 체계적인 실행 프로세스(계획, 실행, 평가, 반추)가 통합 구현 성패를 좌우함을 체계화.",
+        "strategic_insight": "기업 전략 수립 후 신규 비즈니스 모델로의 피보팅 과정에서 발생하는 조직적 저항을 진단하고, 전사적 변화관리(Change Management) 로드맵을 체계적으로 구조화하는 실행 점검표로 활용 가능합니다.",
+        "limitations": "공공 보건의료 서비스 전달 환경을 중심으로 정립되어 영리 기업의 민첩한 시장 경쟁 및 플랫폼 생태계 역동성을 온전히 반영하기 위해서는 수정 보완이 필요함.",
+        "tags": [
+          "Strategy Execution",
+          "Organizational Transformation",
+          "Change Management",
+          "Implementation Science",
+          "Innovation Adoption"
+        ],
+        "original_abstract": "BACKGROUND: Many interventions found to be effective in health services research studies fail to translate into meaningful patient care outcomes across multiple contexts. Health services researchers recognize the need to evaluate not only summative outcomes but also formative outcomes to assess the extent to which implementation is effective in a specific setting, prolongs sustainability, and promotes dissemination into other settings. Many implementation theories have been published to help promote effective implementation. However, they overlap considerably in the constructs included in individual theories, and a comparison of theories reveals that each is missing important constructs included in other theories. In addition, terminology and definitions are not consistent across theories. We describe the Consolidated Framework For Implementation Research (CFIR) that offers an overarching typology to promote implementation theory development and verification about what works where and why across multiple contexts. METHODS: We used a snowball sampling approach to identify published theories that were evaluated to identify constructs based on strength of conceptual or empirical support for influence on implementation, consistency in definitions, alignment with our own findings, and potential for measurement. We combined constructs across published theories that had different labels but were redundant or overlapping in definition, and we parsed apart constructs that conflated underlying concepts. RESULTS: The CFIR is composed of five major domains: intervention characteristics, outer setting, inner setting, characteristics of the individuals involved, and the process of implementation. Eight constructs were identified related to the intervention (e.g., evidence strength and quality), four constructs were identified related to outer setting (e.g., patient needs and resources), 12 constructs were identified related to inner setting (e.g., culture, leadership engagement), five constructs were identified related to individual characteristics, and eight constructs were identified related to process (e.g., plan, evaluate, and reflect). We present explicit definitions for each construct. CONCLUSION: The CFIR provides a pragmatic structure for approaching complex, interacting, multi-level, and transient states of constructs in the real world by embracing, consolidating, and unifying key constructs from published implementation theories. It can be used to guide format",
+        "apa_citation": "Damschroder, L. J., Aron, D. C., Keith, R. E., Kirsh, S. R., & Alexander, J. A. (2009). Fostering implementation of health services research findings into practice: A consolidated framework for advancing implementation science. Implementation Science, 4(1), 50. https://doi.org/10.1186/1748-5908-4-50"
+      },
+      {
+        "paper_id": "W2981863007",
+        "original_title": "Systematic review of research on artificial intelligence applications in higher education – where are the educators?",
+        "korean_title": "고등교육 인공지능 응용 연구에 대한 체계적 문헌고찰 – 교육자는 어디에 있는가?",
+        "authors": [
+          "Olaf Zawacki‐Richter",
+          "Victoria I. Marín",
+          "Melissa Bond",
+          "Franziska Gouverneur"
+        ],
+        "venue": "International Journal of Educational Technology in Higher Education",
+        "year": 2019,
+        "citation_count": 15864,
+        "doi": "10.1186/s41239-019-0171-0",
+        "url": "https://doi.org/10.1186/s41239-019-0171-0",
+        "pdf_url": "https://educationaltechnologyjournal.springeropen.com/track/pdf/10.1186/s41239-019-0171-0",
+        "total_score": 85,
+        "journal_authority": 88,
+        "methodology_rigor": 86,
+        "practical_impact": 82,
+        "evaluation_comment": "디지털 기술 도입이 기존 서비스 전달 모델을 어떻게 혁신하는지 체계적 문헌고찰을 통해 입증하고 기술 중심주의의 함정을 경고한 연구입니다.",
+        "core_hypothesis": "인공지능 기술의 실제 현장 도입은 순수 기술적 효율성에 치중되어 있으며, 최종 사용자 관점 및 도메인 전문가의 거버넌스 부재로 인해 실질적 가치 창출에 한계가 있다.",
+        "methodology": "2007년부터 2018년 사이 출판된 2,656편 논문 중 엄격한 선정 기준을 거쳐 146편을 추출한 체계적 문헌고찰(Systematic Literature Review) 및 메타 합성.",
+        "key_findings": "AI 도입 영역은 프로파일링·예측, 평가, 적응형 개인화, 지능형 튜터링 4가지로 범주화되나, 위험 거버넌스 및 사용자 중심의 철학적·전략적 통합 논의가 심각하게 결여되어 있음을 규명.",
+        "strategic_insight": "AI 기반 비즈니스 모델 혁신을 추진하는 기업은 알고리즘 도입 자체보다 핵심 이해관계자 및 현장 실무자의 피드백 루프와 AI 거버넌스를 비즈니스 아키텍처에 내재화해야 성공 확률을 높일 수 있습니다.",
+        "limitations": "교육 기관의 특수성을 다루고 있어 기업 B2B/B2C 상업적 비즈니스 모델의 수익화 메커니즘 분석으로는 전이 적용 시 추가적 해석이 필요함.",
+        "tags": [
+          "AI Transformation",
+          "Business Model Innovation",
+          "Technology Adoption",
+          "Governance",
+          "Systematic Review"
+        ],
+        "original_abstract": "According to various international reports, Artificial Intelligence in Education (AIEd) is one of the currently emerging fields in educational technology. Whilst it has been around for about 30 years, it is still unclear for educators how to make pedagogical advantage of it on a broader scale, and how it can actually impact meaningfully on teaching and learning in higher education. This paper seeks to provide an overview of research on AI applications in higher education through a systematic review. Out of 2656 initially identified publications for the period between 2007 and 2018, 146 articles were included for final synthesis, according to explicit inclusion and exclusion criteria. The descriptive results show that most of the disciplines involved in AIEd papers come from Computer Science and STEM, and that quantitative methods were the most frequently used in empirical studies. The synthesis of results presents four areas of AIEd applications in academic support services, and institutional and administrative services: 1. profiling and prediction, 2. assessment and evaluation, 3. adaptive systems and personalisation, and 4. intelligent tutoring systems. The conclusions reflect on the almost lack of critical reflection of challenges and risks of AIEd, the weak connection to theoretical pedagogical perspectives, and the need for further exploration of ethical and educational approaches in the application of AIEd in higher education.",
+        "apa_citation": "Zawacki-Richter, O., Marín, V. I., Bond, M., & Gouverneur, F. (2019). Systematic review of research on artificial intelligence applications in higher education – Where are the educators? International Journal of Educational Technology in Higher Education, 16(1), 39. https://doi.org/10.1186/s41239-019-0171-0"
+      },
+      {
+        "paper_id": "W1975994995",
+        "original_title": "Distribution of the Estimators for Autoregressive Time Series With a Unit Root",
+        "korean_title": "단위근을 갖는 자기회귀 시계열 추정량의 분포: 디키-풀러 검정",
+        "authors": [
+          "David Alan Dickey",
+          "Wayne Arthur Fuller"
+        ],
+        "venue": "Journal of the American Statistical Association",
+        "year": 1979,
+        "citation_count": 34821,
+        "doi": "10.1080/01621459.1979.10482531",
+        "url": "https://doi.org/10.1080/01621459.1979.10482531",
+        "pdf_url": "",
+        "total_score": 83,
+        "journal_authority": 98,
+        "methodology_rigor": 98,
+        "practical_impact": 65,
+        "evaluation_comment": "계량경제학 및 시계열 데이터 분석의 토대를 세운 고전적 명저로, 거시 환경 변화 및 기업 시계열 성과 데이터의 비정상성(Non-stationarity)을 통제하는 필수 통계 기법입니다.",
+        "core_hypothesis": "자기회귀 시계열 모델에서 확률 보행(단위근 ρ=1)을 가질 때 회귀 추정량 및 t-통계량은 통상적인 정규분포나 t-분포가 아닌 비표준 극한분포를 따른다.",
+        "methodology": "단위근 귀무가설 하에서 자기회귀 파라미터의 극한 확률 분포 유도 및 몬테카를로 시뮬레이션을 통한 기각역 임계치 도출.",
+        "key_findings": "단위근이 존재하는 시계열 데이터를 사전 차분 없이 일반 OLS로 회귀할 경우 가짜 회귀(Spurious Regression) 문제가 발생함을 입증하고 검정 통계량을 확립.",
+        "strategic_insight": "비즈니스 모델 혁신의 재무적 성과나 시장 수요 변동을 거시 시계열 데이터로 평가할 때, 일시적 충격과 영구적 구조 변화를 구분하여 전략적 착시를 방지할 수 있습니다.",
+        "limitations": "순수 수리통계적 연구로서 비즈니스 모델 설계나 기업 전략의 정성적 의사결정에 직접적인 프레임워크를 제공하지는 못함.",
+        "tags": [
+          "Econometrics",
+          "Time Series Analysis",
+          "Unit Root Test",
+          "Quantitative Strategy",
+          "Statistical Modeling"
+        ],
+        "original_abstract": "Let n observations Y 1 , Y 2 , ..., Y n be generated by the model Y t = ρ Y t - 1 + e t , where Y 0 is a fixed constant and {e t } t = 1 n is a sequence of independent normal random variables with mean 0 and variance σ 2 . Properties of the regression estimator of ρ are obtained under the assumption that ρ = ± 1. Representations for the limit distributions of the estimator of ρ and of the regression t test are derived. The estimator of ρ and the regression t test furnish methods of testing the hypothesis that ρ = 1.",
+        "apa_citation": "Dickey, D. A., & Fuller, W. A. (1979). Distribution of the estimators for autoregressive time series with a unit root. Journal of the American Statistical Association, 74(366), 427-431. https://doi.org/10.1080/01621459.1979.10482531"
+      }
+    ]
+  },
+  {
     "updated_at": "2026-11-26 07:46 KST",
     "keyword": "corporate strategy business model innovation",
     "count": 5,
